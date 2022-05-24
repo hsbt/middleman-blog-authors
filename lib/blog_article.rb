@@ -6,11 +6,11 @@ module Middleman
       end
 
       def author_permalinks
-        data.authors ? data.authors.split(',').map{|author| Middleman::BlogAuthors::AuthorPages.permalink(author)} : []
+        data.authors ? data.authors.map{|author| Middleman::BlogAuthors::AuthorPages.permalink(author.name.to_s.strip)} : []
       end
 
       def author_names
-        data.authors ? data.authors.split(',').map{|author| author.strip} : []
+        data.authors ? data.authors.map{|author| author.name.to_s.strip } : []
       end
     end
   end
