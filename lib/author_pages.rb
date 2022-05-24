@@ -5,7 +5,7 @@ module Middleman
     class AuthorPages
       class << self
         def permalink(author_name)
-          author_name.parameterize
+          author_name.to_s
         end
 
         def link(blog_authors_options, author)
