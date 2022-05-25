@@ -30,8 +30,8 @@ class BlogAuthors < ::Middleman::Extension
 
   helpers do
     def link_to_author(author)
-      author_path = ::Middleman::BlogAuthors::AuthorPages.link(self.blog_authors_options, author)
-      link_to author.name, "/#{author_path}"
+      author_path = ::Middleman::BlogAuthors::AuthorPages.link(@app.blog_authors_options, author.to_s)
+      link_to author.to_s, "/#{author_path}"
     end
   end
 end

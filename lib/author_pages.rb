@@ -9,7 +9,7 @@ module Middleman
         end
 
         def link(blog_authors_options, author)
-          ::Middleman::Util.normalize_path(blog_authors_options.author_path.sub(":author", AuthorPages.permalink(author.name)))
+          ::Middleman::Util.normalize_path(blog_authors_options.author_path.sub(":author", AuthorPages.permalink(author)))
         end
       end
 
@@ -40,7 +40,7 @@ module Middleman
         end
 
         resources + self.blog_data.authors.map do |author|
-          path = AuthorPages.link(self.blog_authors_options, author)
+          path = AuthorPages.link(self.blog_authors_options, author.name)
 
           p = ::Middleman::Sitemap::ProxyResource.new(
             @app.sitemap,
